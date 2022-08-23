@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/payroll_form.css">
+  <script src="../js/payroll_form.js"></script>
   <title>Employee payroll from</title>
 </head>
 
@@ -22,13 +23,13 @@
   <div class="form-content">
     <form class="form" action="#" onsubmit="save();return false">
       <div class="form-head">Employee Payroll form</div>
-      <div class="row—content">
+      <div class="row-content">
         <label class="label text" for="name">Name</label>
         <input class="input" type="text" id="name" name="name" placeholder="your name.." required>
       </div>
-      <div class="row—content">
+      <div class="row-content">
         <label class="label text" for="profile">Profile image</label>
-        <div class="profile—radio—content">
+        <div class="profile-radio-content">
           <label>
             <input type="radio" id="profile1" name="profile" value="../assets/profile-images/Ellipse -3.png" required>
             <img class="profile" id='imagel' src="../assets/profile-images/Ellipse -3.png">
@@ -48,7 +49,7 @@
         </div>
       </div>
 
-      <div class="row—content">
+      <div class="row-content">
         <label class="label text" for="gender">Gender</label>
         <div>
           <input type="radio" id="male" name="gender" value="male">
@@ -58,7 +59,7 @@
         </div>
       </div>
 
-      <div class="row—content">
+      <div class="row-content">
         <label class="label text" for="department">Department</label>
         <div>
           <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
@@ -74,13 +75,13 @@
         </div>
       </div>
 
-      <div class="row—content">
+      <div class="row-content">
         <label class="label text" for="salary">Choose your salary: </label>
         <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
-        <output class="salary—output text" for="salary">400000</output>
+        <output class="salary-output text" for="salary">400000</output>
       </div>
 
-      <div class="row—content">
+      <div class="row-content">
         <label class="label text" for="start date">Start Date</label>
         <div>
           <select id="day" name="Day">
@@ -143,7 +144,7 @@
         </div>
       </div>
 
-      <div class="row—content">
+      <div class="row-content">
         <label class="label text" for="notes">Notes</label>
         <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
       </div>
@@ -157,6 +158,14 @@
 
     </form>
   </div>
+
+  <script>
+    const salary = document.querySelector('#salary');
+const output = document.querySelector('.salary-output');
+salary.addEventListener('input',function(){
+    output.textContent = salary.value;
+});
+  </script>
 </body>
 
 </html>
