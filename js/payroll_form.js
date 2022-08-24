@@ -70,7 +70,6 @@ class EmployeePayrollData{
 }
 
 function save(){
-    alert('form submitted');
     let employeePayrollData = new EmployeePayrollData(
         document.querySelector('#name').value,
         document.querySelector('input[name="gender"]:checked').value,
@@ -79,8 +78,7 @@ function save(){
         document.getElementById("start-date").value,
         document.querySelector('#notes').value
     );
-
-    console.log('form submitted', employeePayrollData);
+    alert('form submitted \n'+employeePayrollData);
 }
 
   
