@@ -1,6 +1,7 @@
 class EmployeePayrollData{
-    constructor(name,gender,department,salary,startDate,note){
+    constructor(name,profilePic,gender,department,salary,startDate,note){
         this.name=name;
+		this.profilePic=profilePic;
         this.gender=gender;
         this.department=department;
         this.salary=salary;
@@ -8,10 +9,24 @@ class EmployeePayrollData{
         this.note=note;
     }
     set name(name){
-        this._name=name;
+		let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z]{2,}$');
+		if(nameRegex.test(name))
+			this._name=name;
+		else {
+			console.log("Name is Incorrect");
+			throw "Name is Incorrect";
+		}
+        
     }
     get name(){
         return this._name;
+    }
+	set profilePic(profilePic){
+        this._profilePic=profilePic;
+    }
+	
+	get profilePic(){
+        return this._profilePic;
     }
 
     set gender(gender){
@@ -58,6 +73,7 @@ class EmployeePayrollData{
         return(
             "{"
             +" Name = "+this.name
+			+", profilePic = "+this.profilePic
             +", Gender = "+this.gender
             +", Department = "+this.department
             +", Salary = "+this.salary
@@ -72,6 +88,7 @@ class EmployeePayrollData{
 function save(){
     let employeePayrollData = new EmployeePayrollData(
         document.querySelector('#name').value,
+		document.querySelector('input[name="profile"]:checked').value,
         document.querySelector('input[name="gender"]:checked').value,
         document.querySelector('input[type="checkbox"]:checked').value,
         document.querySelector('#salary').value,
@@ -80,6 +97,19 @@ function save(){
     );
     alert('form submitted \n'+employeePayrollData);
 }
+
+//window.addEventListener('DOMContentLoaded' (event) => {
+//	const name = document.querySelector('#name');
+//	const textError = document.querySelector('.text-error');
+//	name.addEventListener('input', function(){
+//		let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+//		if(nameRegex.test(name.value))
+//			textError.textContent("");
+//		else textError.textContent = "Name is Incorrect";
+//	});
+//});
+
+
 
   
 
