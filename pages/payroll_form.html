@@ -84,7 +84,8 @@
       <div class="row-content">
         <label class="label text" for="start date">Start Date</label>
         <div>
-          <select id="day" name="Day">
+          <input class="input text" type="date" id="start-date">
+          <!-- <select id="day" name="Day">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -140,7 +141,7 @@
               <option value="2018">2018</option>
               <option value="2017">2017</option>
               <option value="2016">2016</option>
-            </select>
+            </select> -->
         </div>
       </div>
 
@@ -155,16 +156,16 @@
           <button type="reset" class="button resetButton">Reset</button>
         </div>
       </div>
-
+      
     </form>
   </div>
 
   <script>
     const salary = document.querySelector('#salary');
-const output = document.querySelector('.salary-output');
-salary.addEventListener('input',function(){
-    output.textContent = salary.value;
-});
+    const output = document.querySelector('.salary-output');
+    salary.addEventListener('input',function(){
+        output.textContent = salary.value;
+    });
   </script>
 </body>
 
