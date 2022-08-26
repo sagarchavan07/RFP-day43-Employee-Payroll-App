@@ -77,6 +77,10 @@ const createEmployeePayrollJSON = () => {
 };
 
 const getDeptHtml = (deptList) => {
+  if (deptList == undefined) {
+    console.log("deptList is empty");
+    return;    
+  }
   let deptHtml = '';
   for (const dept of deptList) {
     deptHtml = `${deptHtml} <div class="dept-label">${dept}</div>`;
@@ -92,7 +96,6 @@ const remove = (node) => {
   }
   const index = empPayrollList.map(empData => empData._id).indexOf(empPayrollData._id);
   empPayrollList.splice(index, 1);
-  // empPayrollList.splice(0, empPayrollList.length);
   localStorage.setItem("employeePayrollDataList", JSON.stringify(empPayrollList));
   document.querySelector(".emp-count").textContent = empPayrollList.length;
   createInnerHtml();
